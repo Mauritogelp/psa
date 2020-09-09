@@ -1,0 +1,21 @@
+#base_imagen_agregar_receta{
+    width:350px;
+    height:350px;
+    position:relative;
+    overflow:hidden;
+    text-align:center !important;
+}
+#imagen_agregar_receta{
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width:350px;
+}
+#nueva_imagen{
+    position:absolute;
+    visibility: hidden;
+}
+*{
+    font-family: sans-serif;
+}
