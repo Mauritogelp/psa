@@ -9,75 +9,177 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <title>Green Guial</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <!--bootstrap-->
-    <link href="css/styleadmin.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>administración</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+
 <body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-secondary" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger text-success" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="" />Green guial</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ml-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Recetas</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="admin_correo.php">Correo</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="php_core/cerrar_sesion.php">Cerrar sesión</a></li>
-                </ul>
-            </div>
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
         </div>
-    </nav>
-    <section class="page-section">
-        <div class="row">
-            <div class="col-6 bg-secondary">
-                <div class="row" id="agregar_receta">
-                    <div class="col-12 text-center">
-                        <button class="btn btn-success" @click="agregar_receta_ahora">agregar nueva receta</button>
-                    </div>
-                    <div class="col-12" id="base_imagen_agregar_receta">
-                        <input type="file" id="nueva_imagen" @change="cambiar_imagen" >
-                        <label for="nueva_imagen">
-                            <img id="imagen_agregar_receta" class="rounded" :src="imagen">
-                        </label>
-                    </div>
-                    <div class="col-12">
-                        <input type="text" class="form-control text-center" v-model="titulo" placeholder="Título">
-                    </div>
-                    <div class="col-12">
-                        <textarea class="form-control" v-model="contenido" placeholder="Acá el contenido"></textarea>
-                    </div>
+        <div class="sidebar-brand-text mx-3">Green Guial</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Recetas</span></a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Correos</span></a>
+      </li>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="php_core/cerrar_sesion.php" id="userDropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Cerrar sesión</span>
+                <img class="img-profile rounded-circle" src="assets/img/logo.svg">
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6" id="agregar_receta">
+              <h4 class="col-12 text-center">Crear recetas</h4>
+              <div class="card" style="width:100%">
+                <div style="text-align:center">
+                  <input style="visibility:hidden;position:absolute" type="file" id="imagen" @change="cambiar_imagen">
+                  <label for="imagen">
+                    <img class="card-img-top" :src="imagen" alt="Card image cap">
+                  </label>
                 </div>
+                <div class="card-body">
+                  <div class="card-title">
+                    <input v-model="titulo" class="form-control text-center" type="text" placeholder="titulo">
+                  </div>
+                  <div>
+                    <textarea v-model="contenido" class="form-control" placeholder="contenido"></textarea>
+                  </div>
+                  <br>
+                  <button @click="agregar_receta_ahora" class="btn btn-success col-12">agregar</button>
+                </div>
+              </div>
             </div>
-            <div class="col-6 bg-secondary">todas las recetas</div>
+            <div class="col-6" id="recetas">
+              <h4 class="col-12 text-center">Recetas</h4>
+              <div class="row">
+                <div v-for="r in recetas_publicadas" class="col-6">
+                  <div class="card" style="width:100%">
+                    <img class="card-img-top" :src="r.imagen" alt="Card image cap" style="height:150px">
+                    <div class="card-body">
+                      <h5 class="card-title text-truncate">{{r.titulo}}</h5>
+                      <pre class="card-text text-truncate">{{r.contenido}}</pre>
+                      <button href="#" class="btn btn-danger col-12">eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+          </div>
         </div>
-    </section>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <!-- sweet alert 2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <!-- Vue cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!--vue recetas-->
-    <script src="vue/receta/agregar_receta.js"></script>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <!-- sweet alert 2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- Vue cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <!--vue recetas-->
+  <script src="vue/receta/agregar_receta.js"></script>
+  <script src="vue/receta/recetas.js"></script>
+
 </body>
+
 </html>
