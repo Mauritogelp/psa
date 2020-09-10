@@ -133,7 +133,7 @@
                     <div class="card-body">
                       <h5 class="card-title text-truncate">{{r.titulo}}</h5>
                       <pre class="card-text text-truncate">{{r.contenido}}</pre>
-                      <button href="#" class="btn btn-danger col-12">eliminar</button>
+                      <button @click="eliminar_receta(r.id,r.titulo)" class="btn btn-danger col-12">eliminar</button>
                     </div>
                   </div>
                 </div>
@@ -176,6 +176,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
   <!-- Third party plugin JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <!--alertas-->
+  <script src="vue/alertas/alertas.js"></script>
   <!--vue recetas-->
   <script src="vue/receta/agregar_receta.js"></script>
   <script src="vue/receta/recetas.js"></script>

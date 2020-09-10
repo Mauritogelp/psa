@@ -13,22 +13,7 @@ var crear_receta = new Vue({
                 if (typeof(respuesta.body.correcto) != 'undefined'){
                     this.imagen = respuesta.body.url;
                 }else if(typeof(respuesta.body.error) != 'undefined'){
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 4000,
-                        timerProgressBar: true,
-                        onOpen: (toast) => {
-                          toast.addEventListener('mouseenter', Swal.stopTimer)
-                          toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-                      
-                    Toast.fire({
-                        icon: 'error',
-                        title: respuesta.body.error,
-                    })
+                    alerta.error(respuesta.body.error);
                 }
             })
         },
@@ -45,58 +30,16 @@ var crear_receta = new Vue({
                         this.titulo = "";
                         this.contenido = "";
                         receta.recetas_publicadas = respuesta.body.recetas;
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 4000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-                        Toast.fire({
-                            icon: 'success',
-                            title: titulo_publicar+" <b>se agregó correctamente</b>",
-                        })  
+                        alerta.correcto(titulo_publicar+" <b>se agregó correctamente</b>");
                     }else if(typeof(respuesta.body.error) != 'undefined'){
                         this.imagen = "assets/img/defecto/pepe.png";
                         this.titulo = "";
                         this.contenido = "";
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 4000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-                        Toast.fire({
-                            icon: 'error',
-                            title: respuesta.body.error,
-                        })  
+                        alerta.error(respuesta.body.error);
                     }
                 })
             }else{
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 4000,
-                    timerProgressBar: true,
-                    onOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })
-                Toast.fire({
-                    icon: 'error',
-                    title: 'La imagen y título sin obligatorios',
-                })            
+                alerta.error("la imágen y título son obligatorios");           
             }
         }
     }
