@@ -27,6 +27,7 @@ var receta = new Vue({
                     let formData = new FormData();
                     formData.append('id',id);
                     this.$http.post("php_core/receta/eliminar_receta.php",formData).then(function(respuesta){
+                        console.log(respuesta);
                         if (typeof(respuesta.body.correcto) != 'undefined'){
                             this.recetas_publicadas = respuesta.body.recetas;
                             alerta.correcto("se eliminó "+titulo+" con éxito");

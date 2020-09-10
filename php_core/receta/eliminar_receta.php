@@ -5,11 +5,19 @@
         public function __construct($i){
             $this->id = $i;
         }
-        public function eliminar_receta_ahora(){
+        public function eliminar_imagen_publicacion(){
             $this->conectar_bd();
             //saco caracteres especiales
             $this->id = $this->conexion->real_escape_string($this->id);
             //
+            $query = "SELECT imagen FROM publicaciones WHERE id = $this->id";
+            $imagen_bd = $this->conexion->query($query);
+            $this->desconectar_bd();
+            $imagen_json = $imagen_bd->fetch_assoc();
+            unlink($_SERVER['DOCUMENT_ROOT']."/psa/".$imagen_json['imagen']);
+        }
+        public function eliminar_receta_ahora(){
+            $this->conectar_bd();
             $query = "DELETE FROM publicaciones WHERE id = $this->id";
             $this->conexion->query($query);
             $this->desconectar_bd();
@@ -47,6 +55,7 @@
     }
     $id = $_POST['id'];
     $receta = new eliminar_receta($id);
+    $receta->eliminar_imagen_publicacion();
     $receta->eliminar_receta_ahora();
     $receta->verificar_publicaciones_vacias();
     $receta->traer_publicaciones_ahora()
