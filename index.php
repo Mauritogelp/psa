@@ -180,39 +180,37 @@
         </div>
         <!-- Contact-->
         <section class="page-section" id="contact">
-            <div class="container">
+            <div class="container" id="correo">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Cuentanos que necesitas</h2>
                     <h3 class="section-subheading text-muted">Respondemos de manera inmediata!</h3>
                 </div>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input class="form-control" id="name" type="text" placeholder="Tu nombre *" required="required" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" id="email" type="email" placeholder="Tu email *" required="required" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <input class="form-control" id="phone" type="tel" placeholder="Tu teléfono *" required="required" />
-                                <p class="help-block text-danger"></p>
-                            </div>
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" type="text" placeholder="Tu nombre *" v-model="nombre" required="required" />
+                            <p class="help-block text-danger"></p>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <textarea class="form-control" id="message" placeholder="Tu mensaje *" required="required"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
+                        <div class="form-group">
+                            <input class="form-control" id="email" type="email" placeholder="Tu email *" v-model="email" required="required" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <input class="form-control" id="phone" type="tel" placeholder="Tu teléfono *" v-model="telefono" required="required" />
+                            <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <div id="success"></div>
-                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Enviar mensaje</button>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <textarea class="form-control" id="message" placeholder="Tu mensaje *" v-model="mensaje" required="required"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
                     </div>
-                </form>
+                </div>
+                <div class="text-center">
+                    <div id="success"></div>
+                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" @click="enviar_correo_ahora">Enviar mensaje</button>
+                </div>
             </div>
         </section>
         <!-- Footer-->
@@ -300,6 +298,8 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
         <script src="vue/iniciar_sesion.js"></script>
+        <script src="vue/alertas/alertas.js"></script>
+        <script src="vue/correo/enviar_correo.js"></script>
         <?php if(isset($_COOKIE['correcto'])): ?>
         <script>
             const Toast = Swal.mixin({
