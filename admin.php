@@ -3,7 +3,7 @@
     session_start();
     if (!isset($_SESSION['id'])){
         setcookie("error","No tenés permiso para acceder a esta sección",time()+1,"/");
-        header("Location:index.html");
+        header("Location:index.php");
     }
 
 ?>

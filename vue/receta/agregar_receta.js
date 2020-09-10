@@ -10,6 +10,7 @@ var crear_receta = new Vue({
             let formData = new FormData();
             formData.append('imagen',event.target.files[0]);
             this.$http.post("php_core/receta/imagen_receta.php",formData).then(function(respuesta){
+                console.log(respuesta);
                 if (typeof(respuesta.body.correcto) != 'undefined'){
                     this.imagen = respuesta.body.url;
                 }else if(typeof(respuesta.body.error) != 'undefined'){
