@@ -123,7 +123,7 @@
                     <td v-if="c.telefono.length > 0">{{c.telefono}}</td>
                     <td v-if="c.telefono.length == 0"><span class="text-danger">no dejó teléfono</span></td>
                     <td class="text-truncate" style="max-width:150px">{{c.mensaje}}</td>
-                    <td class="text-center"><a class="btn btn-success" data-toggle="modal" :href="'#correo'+i">ver</a> <button @click="eliminar_correo(c.email)" class="btn btn-danger">eliminar</button></td>
+                    <td class="text-center"><a class="btn btn-success" data-toggle="modal" :href="'#correo'+i">ver</a> <button @click="eliminar_correo(c.id,c.email)" class="btn btn-danger">eliminar</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -145,7 +145,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                      <button type="button" class="btn btn-danger" @click="eliminar_correo(c.email)">eliminar</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" @click="eliminar_correo(c.id,c.email)">eliminar</button>
                     </div>
                   </div>
                 </div>
