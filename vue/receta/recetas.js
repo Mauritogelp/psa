@@ -43,6 +43,13 @@ var receta = new Vue({
                     alerta.correcto("no se eliminó nada");    
                 }
               })           
-        }
+				},
+				modificar_receta:function(id,imagen,titulo,contenido){
+					crear_receta.id = id;
+					crear_receta.imagen = imagen;
+					crear_receta.titulo = titulo;
+					crear_receta.contenido = contenido;
+					crear_receta.boton = "modificar";
+				}
     }
 })

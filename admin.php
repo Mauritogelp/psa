@@ -120,7 +120,14 @@
                     <textarea v-model="contenido" class="form-control" placeholder="contenido"></textarea>
                   </div>
                   <br>
-                  <button @click="agregar_receta_ahora" class="btn btn-success col-12">agregar</button>
+                  <div v-if="boton == 'agregar'">
+                    <button @click="agregar_receta_ahora" class="btn btn-success col-12">agregar</button>
+                  </div>
+                  <div class="row" v-if="boton == 'modificar'">
+                    <input type="hidden" v-model="id">
+                    <button @click="realizar_cambio" class="btn btn-success col-6">realizar cambio</button>
+                    <button @click="cancelar_modificar" class="btn btn-danger col-6">cancelar</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -133,11 +140,14 @@
                     <div class="card-body">
                       <h5 class="card-title text-truncate">{{r.titulo}}</h5>
                       <pre class="card-text text-truncate">{{r.contenido}}</pre>
-                      <button @click="eliminar_receta(r.id,r.titulo)" class="btn btn-danger col-12">eliminar</button>
+                      <div class="row">
+                        <button @click="eliminar_receta(r.id,r.titulo)" class="btn btn-danger col-6">eliminar</button>
+                        <button @click="modificar_receta(r.id,r.imagen,r.titulo,r.contenido)" class="btn btn-warning col-6">modificar</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>              
+              </div>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@
         }
         public function traer_correos_ahora(){
             $this->conectar_bd();
-            $query = "SELECT * FROM correos";
+            $query = "SELECT * FROM correos ORDER BY id DESC";
             $correos_bd = $this->conexion->query($query);
             $this->desconectar_bd();
             foreach($correos_bd as $row){

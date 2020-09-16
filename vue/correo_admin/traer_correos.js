@@ -12,6 +12,27 @@ var correo = new Vue({
                 this.todos_correos = respuesta.body.correos;
             }
         })
+    },
+    methods:{
+        eliminar_correo:function(correo){
+            Swal.fire({
+                title: 'Estás seguro?',
+                text: "Estás por eliminar a "+correo,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                  )
+                }
+            })            
+        }
     }
 
 })

@@ -104,31 +104,53 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12" id="correos">
-            <table class="table table-dark">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Teléfono</th>
-                  <th scope="col">Mensaje</th>
-                  <th scope="col" class="text-center">Opciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="c in todos_correos">
-                  <th scope="row">1</th>
-                  <td>{{c.nombre}}</td>
-                  <td>{{c.email}}</td>
-                  <td v-if="c.telefono.length > 0">{{c.telefono}}</td>
-                  <td v-if="c.telefono.length == 0"><span class="text-danger">no dejó teléfono</span></td>
-                  <td class="text-truncate" style="max-width:150px">{{c.mensaje}}</td>
-                  <td class="text-center"><button class="btn btn-success">ver</button> <button class="btn btn-danger">eliminar</button></td>
-                </tr>
-              </tbody>
-            </table>
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Mensaje</th>
+                    <th scope="col" class="text-center">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="c,i in todos_correos">
+                    <th scope="row">1</th>
+                    <td>{{c.nombre}}</td>
+                    <td>{{c.email}}</td>
+                    <td v-if="c.telefono.length > 0">{{c.telefono}}</td>
+                    <td v-if="c.telefono.length == 0"><span class="text-danger">no dejó teléfono</span></td>
+                    <td class="text-truncate" style="max-width:150px">{{c.mensaje}}</td>
+                    <td class="text-center"><a class="btn btn-success" data-toggle="modal" :href="'#correo'+i">ver</a> <button @click="eliminar_correo(c.email)" class="btn btn-danger">eliminar</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--modal correos-->
+              <div v-for="c,i in todos_correos" class="modal fade" :id="'correo'+i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Correo</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p class="text-secondary">Nombre: <code>{{c.nombre}}</code></p>
+                      <p class="text-secondary">Email: <code>{{c.email}}</code></p>
+                      <p class="text-secondary">Teléfono: <code>{{c.telefono}}</code></p>
+                      Mensaje: <code>{{c.mensaje}}</code>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-danger" @click="eliminar_correo(c.email)">eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!--modal correos-->
           </div>
         </div>
       </div>
